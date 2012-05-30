@@ -1,19 +1,19 @@
 describe("lineChart", function() {
 	beforeEach(function() {
-		lineChart.rawData = "head 1,head 2,head 3\nitem 1,item 2,item 3\nitem 4,item 5,item 6";
+		lineChart.rawData = "string,value 1,value 2\nitem 1,3,4\nitem 2,55,66";
 	});
 	
 	describe("getHeader", function() {
 		it("returns an array with each item a separate header item", function() {
 			var result = lineChart.getHeader();
-			expect(result).toEqual(['head 1', 'head 2', 'head 3']);
+			expect(result).toEqual(['string', 'value 1', 'value 2']);
 		});
 	});
 	
 	describe("getValues", function() {
 		it("returns an array of arrays representing the values", function() {
 			var result = lineChart.getValues();
-			expect(result).toEqual([['item 1', 'item 2', 'item 3'], ['item 4', 'item 5', 'item 6']]);
+			expect(result).toEqual([['item 1', 3, 4], ['item 2', 55, 66]]);
 		});
 	});
 });
