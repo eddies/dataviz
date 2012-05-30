@@ -37,6 +37,15 @@ lineChart = {
 		return lineChart.rawData.split('\n')[0].split(',')
 	},
 	
+	getValues: function() {
+		var values = [];
+		var valueStrings = lineChart.rawData.split('\n').slice(1);
+		for(var i = 0; i < valueStrings.length; i++) {
+			values.push(valueStrings[i].split(','));
+		}
+		return values;
+	},
+	
 	drawChart: function() {
     var data = google.visualization.arrayToDataTable([
       ['Year', 'Sales', 'Expenses'],
